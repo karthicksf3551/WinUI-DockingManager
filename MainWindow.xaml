@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="SfDockingManager_Demo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SfDockingManager_Demo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:docking="using:Syncfusion.UI.Xaml.Docking"
+    Title="SfDockingManager_Demo">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid>
+        <docking:SfDockingManager x:Name="dockingmanager">
+
+            <!-- Left Docked -->
+            <docking:DockPane x:Name="ToolBoxPane"
+                      Header="Toolbox"
+                      DockDirection="Left"
+                      DockState="Docked">
+                <TextBlock Text="Toolbox Content" Margin="10"/>
+            </docking:DockPane>
+
+            <!-- Right Docked -->
+            <docking:DockPane x:Name="SolutionExplorerPane"
+                      Header="Solution Explorer"
+                      DockDirection="Right"
+                      DockState="Docked">
+                <TextBlock Text="Solution Explorer Content" Margin="10"/>
+            </docking:DockPane>
+
+            <!-- Bottom Docked -->
+            <docking:DockPane x:Name="OutputPane"
+                      Header="Output"
+                      DockDirection="Bottom"
+                      DockState="Docked">
+                <TextBlock Text="Build Output Window" Margin="10"/>
+            </docking:DockPane>
+            
+            <!-- Document Window -->
+            <docking:DockPane x:Name="Document1"
+                      Header="MainWindow.xaml"
+                      DockState="Document">
+                <TextBox AcceptsReturn="True"
+                 Text="Main document editor..."
+                 Margin="5"/>
+            </docking:DockPane>
+
+            <!-- Another Document Window -->
+            <docking:DockPane x:Name="Document2"
+                      Header="App.xaml"
+                      DockState="Document">
+                <TextBox AcceptsReturn="True"
+                 Text="Another document..."
+                 Margin="5"/>
+            </docking:DockPane>
+
+            <!-- Tabbed with Output -->
+            <docking:DockPane x:Name="ErrorListPane"
+                      Header="Error List" DockState="Tabbed" TargetNameInTabbedState="OutputPane"
+                      >
+                <TextBlock Text="Error List Content" Margin="10"/>
+            </docking:DockPane>
+
+        </docking:SfDockingManager>
+    </Grid>
+</Window>
